@@ -2,8 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 // import * as TodoActions from '../actions'
-import FixtureCanvas from '../components/FixtureCanvas'
-import KeyFrameCanvas from '../components/KeyFrameCanvas'
+import { FixtureCanvas, KeyFrameCanvas, DevTools } from '../components'
 
 export default class App extends Component {
   render() {
@@ -15,6 +14,9 @@ export default class App extends Component {
           width={ 600 }
           height={ 400 }
         />
+
+      <DevTools />
+
       </div>
     )
   }
