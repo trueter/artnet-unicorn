@@ -3,16 +3,16 @@ import classnames from 'classnames'
 import Fixture from './Fixture'
 
 export default class FixtureCanvas extends Component {
-  
+
   renderFixture( fixture ) {
     return(
-     <Fixture x={fixture.x} y={fixture.y} selected={fixture.selected}/> 
+     <Fixture x={fixture.x} y={fixture.y} selected={fixture.selected}/>
     )
   }
-  
+
   render() {
     const { width, height, fixtures } = this.props
-  
+
     return (
       <svg height={ height } width={ width }>
         <rect x="0" y="0" fill="#332F2D" height={ height } width={ width }/>
