@@ -3,6 +3,26 @@ import classnames from 'classnames'
 import KeyFrame from './KeyFrame'
 
 export default class KeyFrameCanvas extends Component {
+  static TRACK_PADDING = 1.5
+
+  static propTypes = {
+    width   : PropTypes.number.isRequired,
+    height  : PropTypes.number.isRequired,
+    keyFrames: PropTypes.arrayOf(
+      PropTypes.shape({
+        time    : PropTypes.number.isRequired,
+        duration: PropTypes.number.isRequired,
+        track   : PropTypes.number.isRequired,
+      })
+    ).isRequired,
+    selected: PropTypes.array
+  }
+
+  static defaultProps = {
+    width      : 400,
+    height     : 400,
+    scaleFactor: 1 / 10
+  }
 
   constructor( props ) {
     super( props )
@@ -49,23 +69,3 @@ export default class KeyFrameCanvas extends Component {
   }
 }
 
-KeyFrameCanvas.TRACK_PADDING = 1.5
-
-KeyFrameCanvas.propTypes = {
-  width   : PropTypes.number.isRequired,
-  height  : PropTypes.number.isRequired,
-  keyFrames: PropTypes.arrayOf(
-    PropTypes.shape({
-      time    : PropTypes.number.isRequired,
-      duration: PropTypes.number.isRequired,
-      track   : PropTypes.number.isRequired,
-    })
-  ).isRequired,
-  selected: PropTypes.array
-}
-
-KeyFrameCanvas.defaultProps = {
-  width      : 400,
-  height     : 400,
-  scaleFactor: 1 / 10
-}

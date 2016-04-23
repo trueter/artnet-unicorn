@@ -2,6 +2,14 @@ import React, { Component, PropTypes } from 'react'
 
 export default class KeyFrame extends Component {
 
+  static FRAME_HEIGHT = 15
+
+  static propTypes = {
+    x    : PropTypes.number.isRequired,
+    y    : PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired
+  }
+
   render() {
     const { x, y, width, handleMouseDown } = this.props
 
@@ -24,11 +32,3 @@ export default class KeyFrame extends Component {
     )
   }
 }
-
-KeyFrame.FRAME_HEIGHT = 15
-
-KeyFrame.propTypes = {
-    x    : PropTypes.number.isRequired,
-    y    : PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired
-  }
