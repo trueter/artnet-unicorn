@@ -15,7 +15,7 @@ export default class KeyFrame extends Component {
 
     const style = {
       fill       : '#7f8c8d',
-      strokeWidth:1
+      strokeWidth: 1
     }
 
     return (
