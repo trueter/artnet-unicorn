@@ -4,6 +4,26 @@ import Fixture from './Fixture'
 
 export default class FixtureCanvas extends Component {
 
+  static propTypes = {
+    width   : PropTypes.number.isRequired,
+    height  : PropTypes.number.isRequired,
+    fixtures: PropTypes.arrayOf(
+      PropTypes.shape({
+          x       : PropTypes.number.isRequired,
+          y       : PropTypes.number.isRequired,
+          selected: PropTypes.bool.isRequired,
+        })
+      ).isRequired,
+    selected: PropTypes.array
+  };
+
+  static defaultProps = {
+    width  : 400,
+    height : 400,
+    fixtures: [],
+    selected: [],
+  };
+
   constructor( props ) {
     super( props )
 
@@ -20,13 +40,13 @@ export default class FixtureCanvas extends Component {
         x={fixture.x} 
         y={fixture.y} 
         selected={fixture.selected}  
-        handleClick={this.props.handleClick}
+        handleSelect={this.props.handleSelect}
       /> 
     )
   }
 
   render() {
-    const { width, height, fixtures, handleClick } = this.props
+    const { width, height, fixtures, handleSelect } = this.props
   
     return (
       <svg height={ height } width={ width }>
@@ -42,25 +62,4 @@ export default class FixtureCanvas extends Component {
       </svg>
     )
   }
-}
-
-
-FixtureCanvas.propTypes = {
-  width   : PropTypes.number.isRequired,
-  height  : PropTypes.number.isRequired,
-  fixtures: PropTypes.arrayOf(
-    PropTypes.shape({
-      x       : PropTypes.number.isRequired,
-      y       : PropTypes.number.isRequired,
-      selected: PropTypes.bool.isRequired,
-    })
-  ).isRequired,
-  selected: PropTypes.array
-}
-
-FixtureCanvas.defaultProps = {
-  width  : 400,
-  height : 400,
-  fixtures: [],
-  selected: [],
 }

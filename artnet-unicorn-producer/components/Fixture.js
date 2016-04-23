@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react'
 export default class Fixture extends Component {
   
   render() {
-    const { id, x, y, height, width, selected, color, handleClick } = this.props
+    const { id, x, y, height, width, selected, color, handleSelect } = this.props
     
     return (
         <circle
@@ -14,7 +14,7 @@ export default class Fixture extends Component {
           stroke={ selected ? "#FFFFFF" : "#767676" }
           strokeWidth="3" 
           fill={ color ? color : "#3C3C3C" } 
-          onClick={handleClick}
+          onClick={handleSelect}
         />
     )
   }

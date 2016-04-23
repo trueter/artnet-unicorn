@@ -26,7 +26,7 @@ storiesOf('FixtureCanvas', module)
             { id: 14, x: 150, y: 200, selected: false },
             { id: 15, x: 200, y: 200, selected: false },
         ]
-    } handleClick={ action('handleFixtureClick') }/>
+    } handleSelect={ action('handleFixtureClick') }/>
   )
   .add('second row selected', () => 
     <FixtureCanvas width={ 600 } height={ 400 } fixtures={
@@ -51,5 +51,5 @@ storiesOf('FixtureCanvas', module)
             { id: 14, x: 150, y: 200, selected: false },
             { id: 15, x: 200, y: 200, selected: false },
         ]
-    } handleClick={ action('handleFixtureClick') }/>
+    } handleSelect={ action('handleFixtureClick') }/>
   )
