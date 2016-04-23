@@ -1,37 +1,34 @@
-
-
-import React from 'react';
-import Fixture from '../Fixture';
-import { storiesOf, action } from '@kadira/storybook';
+import React from 'react'
+import Fixture from '../Fixture'
+import { storiesOf, action } from '@kadira/storybook'
 
 const Canvas = ({ children }) => <svg width="400" height="110">{ children }</svg>
 
 storiesOf('Fixture', module)
-  .add('unselected, no color', () => 
+  .add('unselected, no color', () =>
     <Canvas>
       <Fixture selected />
-    <Canvas/>
+    </Canvas>
   )
-  /*.add('selected, no color', () => 
+  .add('selected, no color', () =>
     <Canvas>
-      <Fixture 
+      <Fixture
         selected
       />
     </Canvas>
   )
-  .add('unselected, color', () => 
+  .add('unselected, color', () =>
     <Canvas>
       <Fixture
         color="#D0021B"
       />
     </Canvas>
   )
-  .add('selected, color', () => 
+  .add('selected, color', () =>
     <Canvas>
-      <Fixture 
+      <Fixture
         selected
         color="#D0021B"
       />
     </Canvas>
   )
-  
