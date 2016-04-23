@@ -5,7 +5,7 @@ import { storiesOf, action } from '@kadira/storybook';
 const Canvas = ({ children }) => <svg width="400" height="110">{ children }</svg>
 
 storiesOf('KeyFrame', module)
-  .add('default', () => 
+  .add('default', () =>
     <Canvas>
       <KeyFrame
         x={ 50 }
@@ -13,5 +13,5 @@ storiesOf('KeyFrame', module)
         width={ 100 }
       />
     </Canvas>
-    
+
   )
