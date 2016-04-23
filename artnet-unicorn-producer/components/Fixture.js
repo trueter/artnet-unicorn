@@ -1,23 +1,41 @@
 import React, { Component, PropTypes } from 'react'
-import classnames from 'classnames'
-
 
 export default class Fixture extends Component {
   
   render() {
-    const { height, width, color, selected } = this.props
+    const { x, y, height, width, selected, color } = this.props
     
     return (
-      <svg height={ height } width={ width }>
+      // <svg height={ height } width={ width }>
         <circle 
-          cx="50" 
-          cy="50" 
+          cx={x}
+          cy={y} 
           r="40" 
           stroke={ selected ? "#FFFFFF" : "#767676" }
           strokeWidth="3" 
           fill={ color } 
         />
-      </svg>
+      // </svg>
     )
   }
 }
+
+// eigentlich static Fixture.propTypes --> stage-0 muss funktionieren- im webpack config- geht aber bei cloud 9 nicht. Sollte im local funktionieren.
+// Ich kann die beiden Sachen dann auch sehr schoen ueber der Klassendefinition schreiben
+
+Fixture.propTypes = {
+  x       : PropTypes.number.isRequired,
+  y       : PropTypes.number.isRequired,
+  height  : PropTypes.number.isRequired,
+  width   : PropTypes.number.isRequired,
+  color   : PropTypes.string.isRequired,
+  selected: PropTypes.bool.isRequired,
+}
+
+Fixture.defaultProps = {
+    x: 50,
+    y: 50,
+    height: 100,
+    width : 100,
+    color : 'transparent'
+  }

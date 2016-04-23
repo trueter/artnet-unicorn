@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 
+console.log("webpack logic")
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
@@ -22,7 +23,10 @@ module.exports = {
         test: /\.js$/,
         loaders: [ 'babel' ],
         exclude: /node_modules/,
-        include: __dirname
+        include: __dirname,
+        query: {
+          presets: ['es2015', 'react', 'stage-0', 'stage-1']
+        }
       },
       {
         test: /\.css?$/,
