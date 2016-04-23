@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
 import { connect } from 'react-redux'
 import KeyFrame from './KeyFrame'
+import * as keyFrameActions from '../reducers/keyFrames'
 
 const mapStateToProps = state => ({
   keyFrames: state.keyFrames
@@ -12,6 +13,7 @@ export class KeyFrameCanvas extends Component {
   static TRACK_PADDING = 1.5
 
   static propTypes = {
+    selectKeyFrame: PropTypes.func.isRequired,
     width   : PropTypes.number.isRequired,
     height  : PropTypes.number.isRequired,
     keyFrames: PropTypes.arrayOf(
@@ -33,13 +35,14 @@ export class KeyFrameCanvas extends Component {
   constructor( props ) {
     super( props )
 
-    this.renderKeyFrame = this.renderKeyFrame.bind( this )
+    this.renderKeyFrame = ::this.renderKeyFrame
   }
 
   renderKeyFrame( keyFrame, index ) {
 
     const props = this.transformTimeToChords( keyFrame )
-    props.handleMouseDown = this.props.handleKeyFrameSelection
+    // partial application of "index" argument
+    props.handleMouseDown = this.props.selectKeyFrame.bind( this, index )
 
     return <KeyFrame key={ index } { ...props } />
   }
@@ -75,4 +78,4 @@ export class KeyFrameCanvas extends Component {
   }
 }
 
-export default connect( mapStateToProps )( KeyFrameCanvas )
+export default connect( mapStateToProps, keyFrameActions )( KeyFrameCanvas )
