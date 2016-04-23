@@ -6,16 +6,14 @@ export default class Fixture extends Component {
     const { x, y, height, width, selected, color } = this.props
     
     return (
-      // <svg height={ height } width={ width }>
         <circle 
           cx={x}
           cy={y} 
-          r="40" 
+          r="20" 
           stroke={ selected ? "#FFFFFF" : "#767676" }
           strokeWidth="3" 
-          fill={ color } 
+          fill={ color ? color : "#3C3C3C" } 
         />
-      // </svg>
     )
   }
 }
@@ -37,5 +35,5 @@ Fixture.defaultProps = {
     y: 50,
     height: 100,
     width : 100,
-    color : 'transparent'
-  }
+    color : ''
+}

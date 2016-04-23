@@ -15,6 +15,7 @@ export default class FixtureCanvas extends Component {
   
     return (
       <svg height={ height } width={ width }>
+        <rect x="0" y="0" fill="#332F2D" height={ height } width={ width }/>
         { fixtures.map( this.renderFixture ) }
       </svg>
     )

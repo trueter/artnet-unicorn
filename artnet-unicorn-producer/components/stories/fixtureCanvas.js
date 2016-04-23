@@ -28,8 +28,28 @@ storiesOf('FixtureCanvas', module)
         ]
     }/>
   )
-//   .add('selected, no color', () => 
-//     <Fixture 
-//       selected
-//     />
-//   )
+  .add('second row selected', () => 
+    <FixtureCanvas width="600" height="400" fixtures={
+        [
+            { x: 50, y: 50, selected: false },
+            { x: 100, y: 50, selected: false },
+            { x: 150, y: 50, selected: false },
+            { x: 200, y: 50, selected: false },
+            
+            { x: 50, y: 100, selected: true },
+            { x: 100, y: 100, selected: true },
+            { x: 150, y: 100, selected: true },
+            { x: 200, y: 100, selected: true },
+            
+            { x: 50, y: 150, selected: false },
+            { x: 100, y: 150, selected: false },
+            { x: 150, y: 150, selected: false },
+            { x: 200, y: 150, selected: false },
+            
+            { x: 50, y: 200, selected: false },
+            { x: 100, y: 200, selected: false },
+            { x: 150, y: 200, selected: false },
+            { x: 200, y: 200, selected: false },
+        ]
+    }/>
+  )

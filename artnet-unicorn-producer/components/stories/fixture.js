@@ -7,7 +7,7 @@ const Canvas = ({ children }) => <svg width="400" height="110">{ children }</svg
 storiesOf('Fixture', module)
   .add('unselected, no color', () =>
     <Canvas>
-      <Fixture selected />
+      <Fixture/>
     </Canvas>
   )
   .add('selected, no color', () =>
