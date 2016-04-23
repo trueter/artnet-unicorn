@@ -10,8 +10,8 @@ export default class App extends Component {
     const { todos, actions } = this.props
     return (
       <div>
-        <FixtureCanvas />
-        <KeyFrameCanvas 
+        {/*<FixtureCanvas />*/}
+        <KeyFrameCanvas
           width={ 600 }
           height={ 400 }
         />
