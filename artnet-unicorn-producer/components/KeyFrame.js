@@ -7,14 +7,15 @@ export default class KeyFrame extends Component {
   static propTypes = {
     x    : PropTypes.number.isRequired,
     y    : PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired
+    width: PropTypes.number.isRequired,
+    selected: PropTypes.bool.isRequired
   }
 
   render() {
-    const { x, y, width, handleMouseDown } = this.props
+    const { x, y, width, handleMouseDown, selected } = this.props
 
     const style = {
-      fill       : '#7f8c8d',
+      fill       : selected ? 'red ': '#7f8c8d',
       strokeWidth: 1
     }
 

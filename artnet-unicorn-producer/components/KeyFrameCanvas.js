@@ -5,7 +5,8 @@ import KeyFrame from './KeyFrame'
 import * as keyFrameActions from '../reducers/keyFrames'
 
 const mapStateToProps = state => ({
-  keyFrames: state.keyFrames
+  keyFrames    : state.keyFrames.frames,
+  selectedFrame: state.keyFrames.selected
 })
 
 export class KeyFrameCanvas extends Component {
@@ -14,6 +15,9 @@ export class KeyFrameCanvas extends Component {
 
   static propTypes = {
     selectKeyFrame: PropTypes.func.isRequired,
+
+    selectedFrame: PropTypes.number.isRequired,
+
     width   : PropTypes.number.isRequired,
     height  : PropTypes.number.isRequired,
     keyFrames: PropTypes.arrayOf(
@@ -22,8 +26,7 @@ export class KeyFrameCanvas extends Component {
         duration: PropTypes.number.isRequired,
         track   : PropTypes.number.isRequired,
       })
-    ).isRequired,
-    selected: PropTypes.array
+    ).isRequired
   }
 
   static defaultProps = {
@@ -42,7 +45,8 @@ export class KeyFrameCanvas extends Component {
 
     const props = this.transformTimeToChords( keyFrame )
     // partial application of "index" argument
-    props.handleMouseDown = this.props.selectKeyFrame.bind( this, index )
+    props.handleMouseDown = this.props.selectKeyFrame.bind( null, index )
+    props.selected = this.props.selectedFrame === index
 
     return <KeyFrame key={ index } { ...props } />
   }
