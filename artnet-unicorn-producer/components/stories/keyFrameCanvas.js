@@ -1,5 +1,5 @@
 import React from 'react';
-import KeyFrameCanvas from '../KeyFrameCanvas';
+import { KeyFrameCanvas } from '../KeyFrameCanvas';
 import { storiesOf, action } from '@kadira/storybook';
 
 storiesOf('KeyFrameCanvas', module)

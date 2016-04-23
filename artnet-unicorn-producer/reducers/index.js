@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import todos from './todos'
+import keyFrames from './keyFrames'
 
 const rootReducer = combineReducers({
-  todos
+  keyFrames
 })
 
 export default rootReducer

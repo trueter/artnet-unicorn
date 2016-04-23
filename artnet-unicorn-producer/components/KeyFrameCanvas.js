@@ -1,8 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
+import { connect } from 'react-redux'
 import KeyFrame from './KeyFrame'
 
-export default class KeyFrameCanvas extends Component {
+const mapStateToProps = state => ({
+  keyFrames: state.keyFrames
+})
+
+export class KeyFrameCanvas extends Component {
+
   static TRACK_PADDING = 1.5
 
   static propTypes = {
@@ -69,3 +75,4 @@ export default class KeyFrameCanvas extends Component {
   }
 }
 
+export default connect( mapStateToProps )( KeyFrameCanvas )
