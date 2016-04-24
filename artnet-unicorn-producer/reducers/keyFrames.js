@@ -1,4 +1,5 @@
 export const SELECT_KEYFRAME = 'SELECT_KEYFRAME'
+export const UPDATE_KEYFRAME = 'UPDATE_KEYFRAME'
 
 const initialState = {
   frames: [
@@ -20,6 +21,23 @@ export default function keyFrames( state = initialState, action ) {
         selected: action.payload.index
       }
 
+    case UPDATE_KEYFRAME:
+      const frames = state.frames
+      const old = frames[ action.payload.index ]
+      const { index, update } = action.payload
+
+      return {
+        ...state,
+        frames: [
+          ...frames.slice( 0, index ),
+          {
+            ...old,
+            ...update
+          },
+          ...frames.slice( index + 1, frames.length )
+        ]
+      }
+
     default:
       return state
   }
@@ -31,6 +49,17 @@ export function selectKeyFrame( index ) {
     type: SELECT_KEYFRAME,
     payload: {
       index
+    }
+  }
+}
+
+
+export function updateKeyFrame( index, update ) {
+  return {
+    type: UPDATE_KEYFRAME,
+    payload: {
+      index,
+      update
     }
   }
 }
