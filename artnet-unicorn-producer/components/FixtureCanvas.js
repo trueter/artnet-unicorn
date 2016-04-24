@@ -1,27 +1,28 @@
 import React, { Component, PropTypes } from 'react'
-import classnames from 'classnames'
+import { connect } from 'react-redux'
 import Fixture from './Fixture'
+import * as fixtureActions from '../reducers/fixtures'
+
+const mapStateToProps = state => ({
+  fixtures: state.fixtures.data,
+  selected: state.fixtures.selected
+})
 
 export default class FixtureCanvas extends Component {
 
   static propTypes = {
     width   : PropTypes.number.isRequired,
     height  : PropTypes.number.isRequired,
+
+    toggleFixture: PropTypes.func.isRequired,
+
     fixtures: PropTypes.arrayOf(
       PropTypes.shape({
           x       : PropTypes.number.isRequired,
-          y       : PropTypes.number.isRequired,
-          selected: PropTypes.bool.isRequired,
+          y       : PropTypes.number.isRequired
         })
       ).isRequired,
-    selected: PropTypes.array
-  };
-
-  static defaultProps = {
-    width  : 400,
-    height : 400,
-    fixtures: [],
-    selected: [],
+    selected: PropTypes.arrayOf( PropTypes.number ).isRequired
   };
 
   constructor( props ) {
@@ -33,33 +34,40 @@ export default class FixtureCanvas extends Component {
   }
 
   renderFixture( fixture ) {
-    return(
-      <Fixture 
-        key={fixture.id}
-        id={fixture.id}
-        x={fixture.x} 
-        y={fixture.y} 
-        selected={fixture.selected}  
-        handleSelect={this.props.handleSelect}
-      /> 
+    return (
+      <Fixture
+        key={ fixture.id }
+        id={ fixture.id }
+        x={ fixture.x }
+        y={ fixture.y }
+        selected={ this.props.selected.includes( fixture.id ) }
+        handleClick={ this.props.toggleFixture.bind( this, fixture.id ) }
+      />
     )
   }
 
   render() {
-    const { width, height, fixtures, handleSelect } = this.props
-  
+    const { width, height, fixtures } = this.props
+
     return (
-      <svg height={ height } width={ width }>
-        <rect 
-          x="0" 
-          y="0" 
-          fill="#332F2D" 
-          height={ height } 
+      <svg
+        height={ height }
+        width={ width }
+
+      >
+        <rect
+          x="0"
+          y="0"
+          fill="transparent"
+          height={ height }
           width={ width }
         />
 
         { fixtures.map( this.renderFixture ) }
+
       </svg>
     )
   }
 }
+
+export default connect( mapStateToProps, fixtureActions )( FixtureCanvas )

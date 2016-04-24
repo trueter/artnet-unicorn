@@ -30,8 +30,8 @@ Fixture.propTypes = {
   height  : PropTypes.number.isRequired,
   width   : PropTypes.number.isRequired,
   color   : PropTypes.string.isRequired,
-  handleClick: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
+  handleSelect: PropTypes.func.isRequired,
 }
 
 Fixture.defaultProps = {
