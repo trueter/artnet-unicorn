@@ -7,15 +7,23 @@ export default class KeyFrame extends Component {
   static propTypes = {
     x    : PropTypes.number.isRequired,
     y    : PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired
+    width: PropTypes.number.isRequired,
+    selected: PropTypes.bool.isRequired
+  }
+
+  shouldComponentUpdate( nextProps ) {
+    return this.props.x !== nextProps.x
+      || this.props.width !== nextProps.width
+      || this.props.selected !== nextProps.selected
   }
 
   render() {
-    const { x, y, width, handleMouseDown } = this.props
+    const { x, y, width, handleMouseDown, selected } = this.props
 
     const style = {
-      fill       : '#7f8c8d',
-      strokeWidth:1
+      fill       : selected ? 'red ': '#7f8c8d',
+      strokeWidth: 1,
+      cursor     : 'pointer'
     }
 
     return (
@@ -27,7 +35,7 @@ export default class KeyFrame extends Component {
         ry={ 10 }
         height={ KeyFrame.FRAME_HEIGHT }
         style={ style }
-        onMouseDown={ handleMouseDown }
+        onMouseDown={ handleMouseDown }
       />
     )
   }
