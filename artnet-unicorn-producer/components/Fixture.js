@@ -1,20 +1,20 @@
 import React, { Component, PropTypes } from 'react'
 
 export default class Fixture extends Component {
-  
+
   render() {
-    const { id, x, y, height, width, selected, color, handleSelect } = this.props
-    
+    const { id, x, y, height, width, selected, color, handleClick } = this.props
+
     return (
         <circle
-          id={id} 
+          id={id}
           cx={x}
-          cy={y} 
-          r="20" 
+          cy={y}
+          r="20"
           stroke={ selected ? "#FFFFFF" : "#767676" }
-          strokeWidth="3" 
-          fill={ color ? color : "#3C3C3C" } 
-          onClick={handleSelect}
+          strokeWidth="3"
+          fill={ color ? color : "#3C3C3C" }
+          onClick={ handleClick }
         />
     )
   }
@@ -26,12 +26,12 @@ export default class Fixture extends Component {
 Fixture.propTypes = {
   x       : PropTypes.number.isRequired,
   y       : PropTypes.number.isRequired,
-  id      : PropTypes.string.isRequired,
+  id      : PropTypes.number.isRequired,
   height  : PropTypes.number.isRequired,
   width   : PropTypes.number.isRequired,
   color   : PropTypes.string.isRequired,
-  selected: PropTypes.bool,
   handleClick: PropTypes.func.isRequired,
+  selected: PropTypes.bool.isRequired,
 }
 
 Fixture.defaultProps = {

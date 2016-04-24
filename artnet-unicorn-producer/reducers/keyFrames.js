@@ -47,9 +47,7 @@ export default function keyFrames( state = initialState, action ) {
 export function selectKeyFrame( index ) {
   return {
     type: SELECT_KEYFRAME,
-    payload: {
-      index
-    }
+    payload: { index }
   }
 }
 
@@ -57,9 +55,6 @@ export function selectKeyFrame( index ) {
 export function updateKeyFrame( index, update ) {
   return {
     type: UPDATE_KEYFRAME,
-    payload: {
-      index,
-      update
-    }
+    payload: { index, update }
   }
 }

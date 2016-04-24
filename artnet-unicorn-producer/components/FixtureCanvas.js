@@ -27,9 +27,9 @@ export default class FixtureCanvas extends Component {
   constructor( props ) {
     super( props )
 
-    // this.renderFixture = this.renderFixture.bind( this )
     this.renderFixture = ::this.renderFixture
-    // fixtures.map( ::this.renderFixture ) 
+    // this.renderFixture = this.renderFixture.bind( this )
+    // fixtures.map( ::this.renderFixture )
   }
 
   renderFixture( fixture ) {

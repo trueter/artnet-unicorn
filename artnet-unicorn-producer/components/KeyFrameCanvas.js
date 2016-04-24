@@ -78,7 +78,7 @@ export class KeyFrameCanvas extends Component {
 
   transformTimeToChords({ time, track, duration }) {
     const { scaleFactor } = this.props
-    
+
     return {
       x    : time * scaleFactor,
       y    : ( track * KeyFrameCanvas.TRACK_PADDING ) * KeyFrame.FRAME_HEIGHT,
