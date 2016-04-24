@@ -11,8 +11,8 @@ export default class App extends Component {
       <div>
         {/*<FixtureCanvas />*/}
         <KeyFrameCanvas
-          width={ 600 }
-          height={ 400 }
+          width={ 300 }
+          height={ 200 }
         />
 
       <DevTools />

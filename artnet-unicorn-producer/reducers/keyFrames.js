@@ -12,17 +12,13 @@ const initialState = {
 }
 
 export default function keyFrames( state = initialState, action ) {
-  switch (action.type) {
+  switch ( action.type ) {
 
     case SELECT_KEYFRAME:
-      console.log( action )
-
-      const newState = {
+      return {
         ...state,
         selected: action.payload.index
       }
-      console.log( newState )
-      return newState
 
     default:
       return state
@@ -31,7 +27,6 @@ export default function keyFrames( state = initialState, action ) {
 
 
 export function selectKeyFrame( index ) {
-  console.log( index )
   return {
     type: SELECT_KEYFRAME,
     payload: {
