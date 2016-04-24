@@ -1,3 +1,9 @@
+/**
+ * KNOWN ISSUE
+ *
+ * Uncaught TypeError: Invalid attempt to destructure non-iterable instance(anonymous function) @ VM103588:24stopDragging @ KeyFrameCanvas.js?0ed9:64ReactErrorUtils.invokeGuardedCallback @ ReactErrorUtils.js?6b31:71executeDispatch @ EventPluginUtils.js?0958:79executeDispatchesInOrder @ EventPluginUtils.js?0958:102executeDispatchesAndRelease @ EventPluginHub.js?c6b1:43forEachAccumulated @ forEachAccumulated.js?b898:23processEventQueue @ EventPluginHub.js?c6b1:259runEventQueueInBatch @ ReactEventEmitterMixin.js?8a20:18handleTopLevel @ ReactEventEmitterMixin.js?8a20:34handleTopLevelWithoutPath @ ReactEventListener.js?2365:93handleTopLevelImpl @ ReactEventListener.js?2365:73perform @ Transaction.js?6dff:136batchedUpdates @ ReactDefaultBatchingStrategy.js?ef70:62batchedUpdates @ ReactUpdates.js?ce09:94dispatchEvent @ ReactEventListener.js?2365:204
+ *
+ **/
 import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
 import { connect } from 'react-redux'
