@@ -1,0 +1,17 @@
+body {
+    background: #332F2D;
+}
+.app {
+    width: 500px;
+    margin: 30px auto 0;
+    border: 4px solid black;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+
+.keyFrameCanvas {
+    margin-top: 20px;
+    border-top: 2px dashed white;
+    padding: 30px;
+}

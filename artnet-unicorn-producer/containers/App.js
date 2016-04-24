@@ -4,14 +4,20 @@ import { connect } from 'react-redux'
 // import * as TodoActions from '../actions'
 import { FixtureCanvas, KeyFrameCanvas, DevTools } from '../components'
 
+import '../styles/app.css'
+
 export default class App extends Component {
   render() {
     const { todos, actions } = this.props
     return (
-      <div>
-        {/*<FixtureCanvas />*/}
+      <div className="app">
+        <FixtureCanvas
+          width={ 250 }
+          height={ 250 }
+        />
+
         <KeyFrameCanvas
-          width={ 300 }
+          width={ 440 }
           height={ 200 }
         />
 

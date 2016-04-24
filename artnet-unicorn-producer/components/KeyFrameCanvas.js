@@ -120,6 +120,7 @@ export class KeyFrameCanvas extends Component {
       <svg
         height={ height }
         width={ width }
+        className="keyFrameCanvas"
         onMouseUp={ this.stopDragging }
         onMouseMove={ this.handleMouseMoveThrottled  }
       >
